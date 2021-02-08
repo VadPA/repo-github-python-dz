@@ -1,5 +1,9 @@
 def my_func(x, y):
-    return x / y
+    try:
+        return x / y
+    except ZeroDivisionError:
+        print('Деление на ноль запрещено!!')
+        return
 
 
 ex = False
@@ -19,16 +23,13 @@ while not ex:
     while not err:
         try:
             b = float(input('Введите отличное от нуля число b:'))
-            if b == 0:
-                print('На ноль делить нельзя. Введите отличное от нуля число')
-                err = False
-            else:
-                err = True
+            print(f'Результат деления {a} / {b} = {my_func(a, b):0.2f}')
+            err = True
         except Exception as e:
             if e is not None:
                 print('вы ввели не числовое значение или ноль, введите число отличное от нуля!')
 
-    print(f'Результат деления {a} / {b} = {my_func(a, b):0.2f}')
+    #print(f'Результат деления {a} / {b} = {my_func(a, b):0.2f}')
 
     s = ''
     while s != 'n' or s != 'N' or s != 'Y' or s != 'y':

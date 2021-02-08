@@ -4,20 +4,33 @@ def exp_el_var1(x_: float, y_: int):
 
 
 def exp_el_var2(a: float, b: int):
-    r = a
+    res = 1
     n = abs(b)
-    i = n
-    if n > 1:
-        while i >= 2:
-            r *= a
-            i -= 1
-    elif n == 1:
-        res = a
-    elif n == 0:
-        res = 1
-    if b < 0:
-        res = 1 / r
-    return res
+    # ------- самый короткий вариант   :)
+    for _ in range(abs(n)):
+        res *= a
+    # ---- вариант 2 ------
+    # i = n
+    # if n != 0:
+    #     if n > 1:
+    #         for i in range(n, 1, -1):
+    #             r *= a
+    #     else:
+    #         res = a
+    # else:
+    #     res = 1
+    # ------ вариант 1 ------
+    # if n > 1:
+    #     while i >= 2:
+    #         r *= a
+    #         i -= 1
+    # elif n == 1:
+    #     res = a
+    # elif n == 0:
+    #     res = 1
+    # if b < 0:
+    #     res = 1 / r
+    return 1 / res
 
 
 err: bool = False

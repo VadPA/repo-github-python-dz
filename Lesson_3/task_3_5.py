@@ -21,6 +21,7 @@ while not ex:
                     l_int.append(int(el))
                 else:
                     ex = True
+                    break
             print(f'Сумма чисел = {sum_num(lst_num + l_int)}')
             if len(lst_num) >= 1:
                 print(f'Прежняя сумма чисел = {sum_num(lst_num)}')

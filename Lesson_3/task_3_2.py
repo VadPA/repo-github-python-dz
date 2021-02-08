@@ -1,6 +1,10 @@
 def user_list(name, surname, year_birth, city, email, tel):
-    return f'Имя: {name}, Фамилия: {surname}, год рождения: {year_birth}, ' \
-           f'город проживания: {city}, эл.почта: {email}, тел.: {tel}'
+    return f'Имя: {name},\n' \
+           f'Фамилия: {surname},\n' \
+           f'год рождения: {year_birth},\n' \
+           f'город проживания: {city},\n' \
+           f'эл.почта: {email},\n' \
+           f'тел.: {tel}\n'
 
 
 ex = False
