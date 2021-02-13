@@ -12,22 +12,23 @@ class Road:
         self.weight = length_ * width_ * thickness_ * self._density_asphalt
 
     def road_info(self):
-        print('Параметры дороги:')
-        print(f'Ширина дороги: {self._width} м.')
-        print(f'Длина дороги: {self._length} м.')
-        print(f'При толщине слоя асфальта {self.thickness:.2f} м масса асфальта: {self.weight:.2f} кг.')
+        return self._width, self._length, self.thickness, self.weight
 
 
-width_ = float(input('Введите длину дороги (м):'))
-length_ = float(input('Введите ширину дороги (м):'))
-thickness_ = float(input('Введите толщина слоя асфальта (м):'))
-print('-----------------------')
-r1 = Road(length_, width_, thickness_)
-r1.road_info()
-print('-----------------------')
-width_ = float(input('Введите длину дороги (м):'))
-length_ = float(input('Введите ширину дороги (м):'))
-thickness_ = float(input('Введите толщина слоя асфальта (м):'))
-print('-----------------------')
-r2 = Road(length_, width_, thickness_)
-r2.road_info()
+lst_road = []
+
+for i in range(1):
+    width = float(input('Введите длину дороги (м):'))
+    length = float(input('Введите ширину дороги (м):'))
+    thickness = float(input('Введите толщина слоя асфальта (м):'))
+    print('-----------------------')
+    r = Road(length, width, thickness)
+    lst_road.append(r)
+
+for el in lst_road:
+    print('-----------------------')
+    print('Параметры дороги:')
+    print(f'Ширина дороги: {el.road_info()[0]} м.')
+    print(f'Длина дороги: {el.road_info()[1]} м.')
+    print(f'При толщине слоя асфальта {el.road_info()[2]:.2f}м масса асфальта: {el.road_info()[3]:.2f} кг.')
+    print('-----------------------')
