@@ -1,29 +1,21 @@
+from itertools import cycle
 import time
 
 
 class TrafficLight:
-    _color = {1: 'красный',
-              2: 'желтый',
-              3: 'зелёный'}
+    __color = 'red'
+    __count = 0
+    __stop = 10
 
-    def trafficLight_info(self, i):
-        print(f'Горит {self._color[i]}!')
-
-    def running(self, n_):
-        while True:
-            for el in range(n_, 4):
-                if el == 1:
-                    self.trafficLight_info(el)
-                    time.sleep(7)
-                elif el == 2:
-                    self.trafficLight_info(el)
-                    time.sleep(2)
-                elif el == 3:
-                    self.trafficLight_info(el)
-                    time.sleep(5)
-            n_ = 1
+    def running(self):
+        for el in cycle([('red', 7), ('yellow', 2), ('green', 4)]):
+            self.__color = el[0]
+            print(f'{self.__color}')
+            time.sleep(el[1])
+            self.__count += 1
+            if self.__count == self.__stop:
+                break
 
 
-n = int(input('Введите значение от 1 до 3 - (1- красный, 2 - желтый, 3 - зеленый):'))
 a = TrafficLight()
-a.running(n)
+a.running()

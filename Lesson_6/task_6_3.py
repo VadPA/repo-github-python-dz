@@ -16,12 +16,11 @@ class Worker:
 class Position(Worker):
 
     def get_full_name(self):
-        print(f'имя сотрудника: {self.name}')
-        print(f'фамилия сотрудника: {self.surname}')
-        print(f'должность сотрудника: {self.position}')
+        return self.name, self.surname, self.position
+
 
     def get_total_income(self):
-        print(f'доход сотрудника {self.surname}: {self._income["wage"] + self._income["bonus"]}:')
+        return self.surname, self._income["wage"] + self._income["bonus"]
 
 
 lst_personal = []
@@ -43,7 +42,9 @@ for i in range(2):
 print('------------ Personal -----------')
 
 for el in lst_personal:
-    el.get_full_name()
+    print(f'имя сотрудника: {el.get_full_name()[0]}')
+    print(f'фамилия сотрудника: {el.get_full_name()[1]}')
+    print(f'должность сотрудника: {el.get_full_name()[2]}')
     print('-----------------------')
-    el.get_total_income()
+    print(f'доход сотрудника {el.get_total_income()[0]}: {el.get_total_income()[1]}')
     print('-----------------------')
